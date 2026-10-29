@@ -1,0 +1,15 @@
+{
+ "name": "Tinten Couverture",
+ "short_name": "Tinten",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#ffffff",
+ "theme_color": "#26313a",
+ "icons": [
+  {
+   "src": "/assets/img/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "tinten-couverture-v2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site de Tinten Couverture, couvreur à Saumur",
+  "scripts": {
+    "build": "python3 site/build.py",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,125 @@
+{
+ "toiture-ardoise-lucarne-saumur": {
+  "w": 1600,
+  "h": 900,
+  "sizes": [
+   640,
+   1280,
+   1600
+  ]
+ },
+ "maison-toit-ardoise-fenetre-de-toit": {
+  "w": 1600,
+  "h": 900,
+  "sizes": [
+   640,
+   1280,
+   1600
+  ]
+ },
+ "pignon-lucarne-tuiles": {
+  "w": 1500,
+  "h": 2000,
+  "sizes": [
+   640,
+   1280
+  ]
+ },
+ "ecran-sous-toiture-liteaux": {
+  "w": 1500,
+  "h": 2000,
+  "sizes": [
+   640,
+   1280
+  ]
+ },
+ "lucarne-tuiles-chantier": {
+  "w": 2000,
+  "h": 1500,
+  "sizes": [
+   640,
+   1280,
+   1600
+  ]
+ },
+ "rive-zinc-ardoise": {
+  "w": 1500,
+  "h": 2000,
+  "sizes": [
+   640,
+   1280
+  ]
+ },
+ "noue-zinc-ardoise": {
+  "w": 1500,
+  "h": 2000,
+  "sizes": [
+   640,
+   1280
+  ]
+ },
+ "toiture-ardoise-cheminees": {
+  "w": 2000,
+  "h": 1500,
+  "sizes": [
+   640,
+   1280,
+   1600
+  ]
+ },
+ "ardoise-liteaux-cheminee": {
+  "w": 1500,
+  "h": 2000,
+  "sizes": [
+   640,
+   1280
+  ]
+ },
+ "bavette-zinc-appui-fenetre": {
+  "w": 2000,
+  "h": 1500,
+  "sizes": [
+   640,
+   1280,
+   1600
+  ]
+ },
+ "couverture-ardoise-detail": {
+  "w": 1500,
+  "h": 2000,
+  "sizes": [
+   640,
+   1280
+  ]
+ },
+ "chantier-toiture-echafaudage": {
+  "w": 844,
+  "h": 475,
+  "sizes": [
+   640
+  ]
+ },
+ "chenau-zinc": {
+  "w": 720,
+  "h": 720,
+  "sizes": [
+   640
+  ]
+ },
+ "chantier-facade-echafaudage": {
+  "w": 2000,
+  "h": 1500,
+  "sizes": [
+   640,
+   1280,
+   1600
+  ]
+ },
+ "couvreur-tinten-toiture": {
+  "w": 1254,
+  "h": 1254,
+  "sizes": [
+   640
+  ]
+ }
+}

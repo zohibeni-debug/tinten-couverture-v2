@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Doit être identique au nom du projet créé dans Cloudflare (Workers & Pages)
+  "name": "tinten-couverture-v2",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-28",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // Conserve les variables saisies dans le tableau de bord Cloudflare à chaque déploiement
+  "keep_vars": true,
+  "observability": { "enabled": true }
+}
