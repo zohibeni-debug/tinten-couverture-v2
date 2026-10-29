@@ -4,7 +4,8 @@
   "private": true,
   "description": "Site de Tinten Couverture, couvreur à Saumur",
   "scripts": {
-    "build": "python3 site/build.py",
+    "build": "node -e \"console.log('Site deja genere dans public/ : rien a construire.')\"",
+    "generer": "python3 site/build.py",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
   },
