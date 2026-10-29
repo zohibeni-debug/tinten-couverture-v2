@@ -927,7 +927,8 @@ def build():
     # CSS et JS
     shutil.copy(os.path.join(SITE, "site.css"), os.path.join(PUBLIC, "assets/css/site.css"))
     shutil.copy(os.path.join(SITE, "site.js"), os.path.join(PUBLIC, "assets/js/site.js"))
-    shutil.copy(os.path.join(PUBLIC, "assets/img/favicon-32.png"), os.path.join(PUBLIC, "favicon.ico"))
+    from PIL import Image
+    Image.open(os.path.join(PUBLIC, "assets/img/icon-512.png")).save(os.path.join(PUBLIC, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48)])
 
     pages = {"index.html": page_home()}
     for s in C.SERVICES:
