@@ -4,13 +4,20 @@
  * Les pages du site sont des fichiers statiques (dossier public/), servies directement par Cloudflare.
  * Ce script ne traite qu'une adresse : POST /api/devis, le formulaire de demande de devis.
  *
- * Envoi par email via Resend si ces secrets sont définis dans Cloudflare
- * (Workers & Pages > tinten-couverture-v2 > Settings > Variables and Secrets) :
- *   RESEND_API_KEY  clé API Resend
- *   DEVIS_TO        adresse qui reçoit les demandes
- *   DEVIS_FROM      expéditeur vérifié chez Resend (facultatif)
- * Sans ces secrets, l'API répond 503 et la page propose l'envoi par WhatsApp ou SMS.
+ * Envoi par Cloudflare Email Service (binding EMAIL, voir wrangler.jsonc).
+ * Le domaine d'envoi doit être ajouté dans Compute > Email Service > Email Sending > Onboard Domain.
+ *
+ * Réglages facultatifs (Workers & Pages > tinten-couverture-v2 > Settings > Variables and Secrets) :
+ *   DEVIS_TO        adresse(s) qui reçoivent les demandes, séparées par des virgules
+ *                   (par défaut : contact@tinten-couverture.fr)
+ *   DEVIS_FROM      expéditeur, ex. « Site Tinten Couverture <devis@tinten-couverture.fr> »
+ *   RESEND_API_KEY  envoi de secours par Resend si Cloudflare échoue (facultatif)
+ *
+ * Si aucun envoi ne fonctionne, l'API répond une erreur et la page propose WhatsApp ou SMS.
  */
+
+const DEFAULT_TO = "contact@tinten-couverture.fr";
+const DEFAULT_FROM = "Site Tinten Couverture <devis@tinten-couverture.fr>";
 
 const SECURITY_HEADERS = {
   "X-Content-Type-Options": "nosniff",
@@ -27,6 +34,41 @@ function json(body, status = 200, extra = {}) {
 
 function clean(v, max) {
   return String(v ?? "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim().slice(0, max);
+}
+
+// « Nom <adresse> » ou « adresse » -> { email, name }
+function parseAddress(v) {
+  const s = String(v || "").trim();
+  const m = s.match(/^(.*)<\s*([^<>\s]+@[^<>\s]+)\s*>$/);
+  if (m) return { email: m[2], name: m[1].trim().replace(/^"|"$/g, "") || undefined };
+  return { email: s };
+}
+
+function recipients(env) {
+  return String(env.DEVIS_TO || DEFAULT_TO).split(",").map((s) => s.trim()).filter(Boolean);
+}
+
+async function sendCloudflare(env, mail) {
+  const from = parseAddress(env.DEVIS_FROM || DEFAULT_FROM);
+  const msg = { from, to: mail.to, subject: mail.subject, text: mail.text };
+  if (mail.replyTo) msg.replyTo = mail.replyTo;
+  await env.EMAIL.send(msg);
+}
+
+async function sendResend(env, mail) {
+  const payload = {
+    from: env.DEVIS_FROM || DEFAULT_FROM,
+    to: mail.to,
+    subject: mail.subject,
+    text: mail.text,
+  };
+  if (mail.replyTo) payload.reply_to = mail.replyTo;
+  const r = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!r.ok) throw new Error(`Resend ${r.status} ${await r.text()}`);
 }
 
 async function handleDevis(request, env) {
@@ -69,42 +111,40 @@ async function handleDevis(request, env) {
     return json({ ok: false, error: "Merci de cocher la case d'accord." }, 400);
   }
 
-  if (!env.RESEND_API_KEY || !env.DEVIS_TO) {
-    return json({ ok: false, reason: "not_configured" }, 503);
-  }
-
-  const text = [
-    "Nouvelle demande de devis depuis le site",
-    "",
-    `Nom : ${d.nom}`,
-    `Téléphone : ${d.telephone}`,
-    d.email ? `Email : ${d.email}` : "Email : non communiqué",
-    `Commune : ${d.commune}`,
-    `Travaux : ${d.type}`,
-    `Rappel souhaité : ${d.rappel}`,
-    "",
-    d.message,
-  ].join("\n");
-
-  const payload = {
-    from: env.DEVIS_FROM || "Site Tinten Couverture <onboarding@resend.dev>",
-    to: [env.DEVIS_TO],
+  const mail = {
+    to: recipients(env),
     subject: `Devis : ${d.type} à ${d.commune} (${d.nom})`,
-    text,
+    replyTo: d.email || undefined,
+    text: [
+      "Nouvelle demande de devis depuis le site tinten-couverture.fr",
+      "",
+      `Nom : ${d.nom}`,
+      `Téléphone : ${d.telephone}`,
+      d.email ? `Email : ${d.email}` : "Email : non communiqué",
+      `Commune : ${d.commune}`,
+      `Travaux : ${d.type}`,
+      `Rappel souhaité : ${d.rappel}`,
+      "",
+      d.message,
+      "",
+      d.email ? "Répondez directement à cet email pour écrire au client." : "Le client n'a pas laissé d'email : rappelez-le au numéro ci-dessus.",
+    ].join("\n"),
   };
-  if (d.email) payload.reply_to = d.email;
 
-  const r = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
+  const senders = [];
+  if (env.EMAIL) senders.push(["cloudflare", sendCloudflare]);
+  if (env.RESEND_API_KEY) senders.push(["resend", sendResend]);
+  if (!senders.length) return json({ ok: false, reason: "not_configured" }, 503);
 
-  if (!r.ok) {
-    console.error("Resend", r.status, await r.text());
-    return json({ ok: false, reason: "send_failed" }, 502);
+  for (const [name, send] of senders) {
+    try {
+      await send(env, mail);
+      return json({ ok: true });
+    } catch (e) {
+      console.error("Envoi devis échoué", name, e && (e.code || ""), e && e.message);
+    }
   }
-  return json({ ok: true });
+  return json({ ok: false, reason: "send_failed" }, 502);
 }
 
 export default {

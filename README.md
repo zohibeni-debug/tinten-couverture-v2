@@ -29,11 +29,15 @@ Le site apparaît sur une adresse provisoire en `.workers.dev`, non indexée par
 
 ## Formulaire de devis
 
-Sans réglage, le formulaire propose d'envoyer la demande par WhatsApp ou par SMS. Pour recevoir les demandes par email, ajouter dans Cloudflare (**Settings** > **Variables and Secrets**, type *Secret*) :
+Les demandes partent par **Cloudflare Email Service** (binding `EMAIL` dans `wrangler.jsonc`, inclus dans Workers Paid : 3 000 emails par mois pour le compte). Condition : le domaine `tinten-couverture.fr` doit être ajouté dans **Compute** > **Email Service** > **Email Sending** > **Onboard Domain**. Tant que ce n'est pas fait, l'envoi échoue et le formulaire propose WhatsApp ou SMS.
 
-- `RESEND_API_KEY` : clé API du compte Resend
-- `DEVIS_TO` : adresse qui reçoit les demandes
-- `DEVIS_FROM` (facultatif) : expéditeur vérifié chez Resend, par exemple `Site Tinten Couverture <devis@tinten-couverture.fr>`
+Réglages facultatifs dans Cloudflare (**Settings** > **Variables and Secrets**) :
+
+- `DEVIS_TO` : adresse(s) qui reçoivent les demandes, séparées par des virgules (par défaut `contact@tinten-couverture.fr`)
+- `DEVIS_FROM` : expéditeur (par défaut `Site Tinten Couverture <devis@tinten-couverture.fr>`)
+- `RESEND_API_KEY` (type *Secret*) : envoi de secours par Resend si Cloudflare échoue
+
+Les envois sont visibles dans **Email Service** > **Email Sending** > journal d'activité.
 
 ## Avant de brancher le domaine tinten-couverture.fr
 

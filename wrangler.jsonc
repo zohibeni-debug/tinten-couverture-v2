@@ -11,6 +11,8 @@
     "not_found_handling": "404-page",
     "run_worker_first": ["/api/*"]
   },
+  // Envoi des demandes de devis par Cloudflare Email Service (Email Sending)
+  "send_email": [{ "name": "EMAIL" }],
   // Conserve les variables saisies dans le tableau de bord Cloudflare à chaque déploiement
   "keep_vars": true,
   "observability": { "enabled": true }
