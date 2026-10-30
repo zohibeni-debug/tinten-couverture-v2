@@ -1002,6 +1002,19 @@ REDIRECTS = [
     ("/couvreur-angers", "/zone-intervention"),
     ("/doue-en-anjou", "/couvreur-doue-en-anjou"),
     ("/montreuil-bellay", "/couvreur-montreuil-bellay"),
+    # Pages de l'ancien site encore présentes dans Google (relevé du 30/10/2026)
+    ("/gouttieres", "/zinguerie-gouttieres"),
+    ("/entretien-velux", "/fenetres-de-toit"),
+    ("/remplacement-velux", "/fenetres-de-toit"),
+    ("/nettoyage-facade", "/ravalement-facade"),
+    ("/avis-clients", "/a-propos"),
+    ("/entretien-toiture", "/entretien-demoussage-toiture"),
+    ("/demoussage-toiture", "/entretien-demoussage-toiture"),
+    ("/nos-engagements", "/a-propos"),
+    ("/reparation-toiture", "/reparation-fuite-toiture"),
+    ("/traitement-humidite", "/ravalement-facade"),
+    ("/reparation-fissures", "/ravalement-facade"),
+    ("/etancheite-terrasse", "/reparation-fuite-toiture"),
 ]
 
 
