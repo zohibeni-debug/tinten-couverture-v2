@@ -17,9 +17,6 @@
 /pose-velux /fenetres-de-toit 301
 /pose-velux/ /fenetres-de-toit 301
 /pose-velux.html /fenetres-de-toit 301
-/isolation-combles /renovation-toiture 301
-/isolation-combles/ /renovation-toiture 301
-/isolation-combles.html /renovation-toiture 301
 /urgences /reparation-fuite-toiture 301
 /urgences/ /reparation-fuite-toiture 301
 /urgences.html /reparation-fuite-toiture 301
@@ -32,9 +29,6 @@
 /contact /devis 301
 /contact/ /devis 301
 /contact.html /devis 301
-/couvreur-angers /zone-intervention 301
-/couvreur-angers/ /zone-intervention 301
-/couvreur-angers.html /zone-intervention 301
 /doue-en-anjou /couvreur-doue-en-anjou 301
 /doue-en-anjou/ /couvreur-doue-en-anjou 301
 /doue-en-anjou.html /couvreur-doue-en-anjou 301
@@ -68,12 +62,3 @@
 /reparation-toiture /reparation-fuite-toiture 301
 /reparation-toiture/ /reparation-fuite-toiture 301
 /reparation-toiture.html /reparation-fuite-toiture 301
-/traitement-humidite /ravalement-facade 301
-/traitement-humidite/ /ravalement-facade 301
-/traitement-humidite.html /ravalement-facade 301
-/reparation-fissures /ravalement-facade 301
-/reparation-fissures/ /ravalement-facade 301
-/reparation-fissures.html /ravalement-facade 301
-/etancheite-terrasse /reparation-fuite-toiture 301
-/etancheite-terrasse/ /reparation-fuite-toiture 301
-/etancheite-terrasse.html /reparation-fuite-toiture 301

@@ -323,6 +323,11 @@ def page_hero(crumbs, h1, lead, photo, alt, extra="", sub="", compact=False):
 </section>"""
 
 
+def de(name):
+    """« de Saumur », « d'Angers » : élision devant une voyelle."""
+    return ("d'" if name[:1].lower() in "aeiouyéèêàâîôûh" else "de ") + esc(name)
+
+
 def split_title(text):
     """Découpe un titre en lignes animées (chaque mot entre dans un masque)."""
     words = text.split(" ")
@@ -530,6 +535,7 @@ RADAR = {
     "couvreur-loudun": (157, 31),
     "couvreur-fontevraud-l-abbaye": (130, 13),
     "couvreur-chinon": (110, 26),
+    "couvreur-angers": (303, 43),
 }
 LABEL_POS = {"couvreur-fontevraud-l-abbaye": ("middle", 24, 27)}
 
@@ -577,7 +583,8 @@ def radar_svg(highlight=None):
 # ---------------------------------------------------------------------------
 
 def page_home():
-    marquee_items = "".join(f'<span class="mq-item">{esc(s["nav"])}</span>' for s in C.SERVICES)
+    main_services = [s for s in C.SERVICES if s.get("home", True)]
+    marquee_items = "".join(f'<span class="mq-item">{esc(s["nav"])}</span>' for s in main_services)
     legend = "".join(
         f'<li data-step="{i + 1}"><span class="num" aria-hidden="true">{i + 1}</span><div><h3>{esc(name)}</h3><p>{fr(esc(text))}</p>'
         f'<a href="/{slug}">{esc(C.SERVICE_BY_SLUG[slug]["nav"])}</a></div></li>'
@@ -624,7 +631,7 @@ def page_home():
       <h2 id="svc-t">Nos prestations</h2>
       <p>Couverture, zinguerie, étanchéité et façades : tout ce qui protège la maison de la pluie.</p>
     </div>
-    {service_cards([s['slug'] for s in C.SERVICES])}
+    {service_cards([s['slug'] for s in main_services])}
   </div>
 </section>
 
@@ -718,7 +725,7 @@ def page_service(s):
     if s.get("steps"):
         lis = "".join(f'<li data-reveal><span class="step-n" aria-hidden="true">{i + 1}</span><div><h3>{esc(t)}</h3><p>{fr(esc(d))}</p></div></li>' for i, (t, d) in enumerate(s["steps"]))
         steps = f'<section><h2 data-reveal>{fr(esc(s["steps_title"]))}</h2><ol class="timeline">{lis}</ol></section>'
-    cities = "".join(f'<li><a href="/{c["slug"]}">{esc(c["name"])}</a></li>' for c in C.CITIES)
+    cities = "".join(f'<li><a href="/{c["slug"]}">{esc(c["name"])}</a></li>' for c in C.CITIES if (c["dist"] or 0) <= B["radius_km"])
     actions = f'<div class="hero-actions rise r3">{tel_btn("btn btn-primary btn-lg")}{devis_btn("btn btn-glass btn-lg")}</div>'
     body = f"""
 {page_hero(crumbs, split_title(s['h1']), fr(esc(s['lead'])), s['photo'], s['photo_alt'], actions)}
@@ -770,7 +777,7 @@ def page_city(c):
       {local}
       <section><h2 data-reveal>Nos prestations à {esc(c['name'])}</h2>{service_cards(c['works'], 'svc-cards svc-cards-2')}
       <p data-reveal>{fr("Nous intervenons aussi pour toutes nos autres prestations :")} <a href="/couverture-tuile">couverture en tuiles</a>, <a href="/ravalement-facade">ravalement</a>, <a href="/entretien-demoussage-toiture">démoussage</a> et <a href="/cheminees">souches de cheminée</a>.</p></section>
-      <section data-reveal><h2>Communes voisines</h2><p>{fr("Nous intervenons également autour de " + esc(c['name']) + " :")}</p><ul class="pill-list pill-static">{nearby}</ul></section>
+      <section data-reveal><h2>Communes voisines</h2><p>{fr("Nous intervenons également autour " + de(c['name']) + " :")}</p><ul class="pill-list pill-static">{nearby}</ul></section>
     </article>
     <div class="aside-col">{radar if c['slug'] in RADAR else ''}{contact_aside()}</div>
   </div>
@@ -994,12 +1001,10 @@ REDIRECTS = [
     ("/travaux-couverture", "/renovation-toiture"),
     ("/travaux-zinguerie", "/zinguerie-gouttieres"),
     ("/pose-velux", "/fenetres-de-toit"),
-    ("/isolation-combles", "/renovation-toiture"),
     ("/urgences", "/reparation-fuite-toiture"),
     ("/qui-sommes-nous", "/a-propos"),
     ("/engagements", "/a-propos"),
     ("/contact", "/devis"),
-    ("/couvreur-angers", "/zone-intervention"),
     ("/doue-en-anjou", "/couvreur-doue-en-anjou"),
     ("/montreuil-bellay", "/couvreur-montreuil-bellay"),
     # Pages de l'ancien site encore présentes dans Google (relevé du 30/10/2026)
@@ -1012,9 +1017,6 @@ REDIRECTS = [
     ("/demoussage-toiture", "/entretien-demoussage-toiture"),
     ("/nos-engagements", "/a-propos"),
     ("/reparation-toiture", "/reparation-fuite-toiture"),
-    ("/traitement-humidite", "/ravalement-facade"),
-    ("/reparation-fissures", "/ravalement-facade"),
-    ("/etancheite-terrasse", "/reparation-fuite-toiture"),
 ]
 
 

@@ -348,6 +348,78 @@ SERVICES = [
         ],
         "related": ["couverture-tuile", "zinguerie-gouttieres", "couverture-ardoise"],
     },
+    # Pages reprises de l'ancien site (mêmes adresses), hors grille de l'accueil
+    {
+        "slug": "isolation-combles",
+        "home": False,
+        "nav": "Isolation des combles",
+        "short": "Combles perdus ou aménagés : isolation au sol, sous les rampants ou par l'extérieur.",
+        "h1": "Isolation des combles à Saumur",
+        "title": "Isolation des combles à Saumur (49) | Tinten Couverture",
+        "desc": "Isolation des combles perdus et aménagés à Saumur : laine soufflée ou en rouleaux, isolation des rampants ou par l'extérieur lors d'une réfection. Devis gratuit.",
+        "photo": "ecran-sous-toiture-liteaux",
+        "photo_alt": "Toiture ouverte au-dessus des combles : écran sous-toiture, contre-liteaux et liteaux",
+        "lead": "Une toiture mal isolée laisse partir une grande part de la chaleur de la maison. Nous isolons les combles perdus et les combles aménagés, et nous profitons d'une réfection de toiture pour isoler par l'extérieur.",
+        "sections": [
+            ("Combles perdus ou combles aménagés",
+             "<p>Les combles perdus, non habitables, s'isolent au sol : laine minérale ou ouate de cellulose soufflée, ou rouleaux posés en deux couches croisées. C'est la solution la plus simple et la plus rentable.</p>"
+             "<p>Les combles aménagés s'isolent sous les rampants, entre et sous les chevrons, avec un pare-vapeur côté intérieur. Quand la couverture est refaite, l'isolant peut aussi se poser par l'extérieur, au-dessus des chevrons, sans perdre de place dans les pièces.</p>"),
+            ("Pourquoi confier l'isolation à un couvreur",
+             "<p>Une laine mouillée n'isole plus : isoler sous une toiture qui fuit, c'est gâcher l'isolant. Avant d'isoler, nous contrôlons la couverture, l'écran sous-toiture et la ventilation des combles. Une lame d'air ventilée sous la couverture et un pare-vapeur bien posé évitent la condensation, qui abîme la charpente.</p>"),
+            ("Ce que nous vérifions avant les travaux",
+             "<ul>"
+             "<li>l'état de la couverture et de la charpente ;</li>"
+             "<li>la ventilation de la toiture ;</li>"
+             "<li>les gaines et les spots électriques à protéger ;</li>"
+             "<li>l'accès aux combles et l'état du plancher ;</li>"
+             "<li>l'épaisseur d'isolant à poser, indiquée sur le devis avec la résistance thermique visée.</li>"
+             "</ul>"),
+        ],
+        "faq": [
+            ("Quelle épaisseur d'isolant faut-il ?",
+             "Elle dépend de l'isolant et de la performance visée. Pour des combles perdus, on vise couramment une résistance thermique d'au moins 7 m².K/W, soit une trentaine de centimètres de laine. Le devis indique l'isolant, l'épaisseur et la résistance obtenue."),
+            ("Peut-on obtenir des aides ?",
+             "Des aides publiques existent pour l'isolation, sous conditions de ressources et de performance. Elles exigent en général une entreprise certifiée RGE : renseignez-vous auprès de France Rénov' avant de signer un devis."),
+            ("Faut-il refaire la toiture pour isoler les combles ?",
+             "Non. Les combles perdus s'isolent par l'intérieur, sans toucher à la couverture. Si la toiture doit être refaite dans les prochaines années, il est en revanche intéressant de coupler les deux chantiers."),
+        ],
+        "related": ["renovation-toiture", "fenetres-de-toit", "reparation-fuite-toiture"],
+    },
+    {
+        "slug": "etancheite-terrasse",
+        "home": False,
+        "nav": "Étanchéité de toit-terrasse",
+        "short": "Toits plats de garages, d'extensions et de dépendances : membranes, relevés, évacuations.",
+        "h1": "Étanchéité de toit-terrasse à Saumur",
+        "title": "Étanchéité toit-terrasse et toit plat à Saumur | Tinten Couverture",
+        "desc": "Étanchéité de toit-terrasse et de toit plat à Saumur : garages, extensions, dépendances. Recherche de fuite, membrane, relevés et évacuations. Devis gratuit.",
+        "photo": "chenau-zinc",
+        "photo_alt": "Chéneau en zinc le long d'un mur, pour l'évacuation des eaux de pluie",
+        "lead": "Garages, extensions, dépendances : les toits plats sont les plus exposés aux infiltrations, car l'eau y stagne. Nous cherchons l'origine des fuites et refaisons l'étanchéité, des relevés jusqu'aux évacuations.",
+        "sections": [
+            ("D'où viennent les fuites d'un toit plat ?",
+             "<ul>"
+             "<li>une membrane fissurée, décollée ou boursouflée par l'âge et les écarts de température ;</li>"
+             "<li>des relevés d'étanchéité décollés contre les murs et les acrotères ;</li>"
+             "<li>des évacuations bouchées par les feuilles et les mousses, qui font stagner l'eau ;</li>"
+             "<li>une pente insuffisante, qui laisse des flaques après la pluie ;</li>"
+             "<li>des traversées mal reprises : ventilations, conduits, fixations de garde-corps.</li>"
+             "</ul>"),
+            ("Réparer ou refaire l'étanchéité",
+             "<p>Une fuite localisée se répare par une reprise de la membrane et des relevés. Quand l'étanchéité est usée sur toute la surface, la réfection complète est plus sûre : dépose ou recouvrement de l'ancien revêtement selon son état, pose d'une membrane neuve adaptée au support, reprise des relevés, des évacuations et des finitions en zinc.</p>"),
+            ("Entretenir pour durer",
+             "<p>Un toit plat demande un contrôle régulier : nettoyage des évacuations et des chéneaux, surveillance des relevés et des joints. Un entretien simple, une à deux fois par an, évite la plupart des infiltrations.</p>"),
+        ],
+        "faq": [
+            ("Que faire en cas de fuite sur un toit plat ?",
+             "Vérifiez d'abord que les évacuations ne sont pas bouchées : c'est une cause fréquente. Si la fuite persiste, appelez-nous : nous localisons l'infiltration avant de proposer une réparation ou une réfection."),
+            ("Peut-on marcher sur un toit-terrasse ?",
+             "Seulement s'il est conçu pour : une terrasse accessible reçoit une protection adaptée, comme des dalles sur plots. Une toiture non accessible ne supporte que les passages d'entretien."),
+            ("Faut-il refaire toute l'étanchéité pour une seule fuite ?",
+             "Pas forcément. Si la membrane est saine autour de la fuite, une reprise localisée suffit. Nous vous le disons après la visite."),
+        ],
+        "related": ["reparation-fuite-toiture", "zinguerie-gouttieres", "entretien-demoussage-toiture"],
+    },
     {
         "slug": "ravalement-facade",
         "nav": "Ravalement de façade",
@@ -381,6 +453,81 @@ SERVICES = [
              "Le printemps et l'automne, hors périodes de gel et de fortes chaleurs, conviennent le mieux aux enduits et aux peintures."),
         ],
         "related": ["zinguerie-gouttieres", "renovation-toiture", "cheminees"],
+    },
+    {
+        "slug": "traitement-humidite",
+        "home": False,
+        "nav": "Traitement de l'humidité",
+        "short": "Remontées capillaires, murs en tuffeau, façades qui boivent la pluie.",
+        "h1": "Traitement de l'humidité des murs à Saumur",
+        "title": "Traitement de l'humidité des murs à Saumur | Tinten Couverture",
+        "desc": "Traitement de l'humidité des murs à Saumur : remontées capillaires, murs en tuffeau, zinguerie, enduits à la chaux et hydrofuge respirant. Visite et devis gratuits.",
+        "photo": "bavette-zinc-appui-fenetre",
+        "photo_alt": "Bavette en zinc posée sur l'appui d'une fenêtre pour éloigner l'eau de la façade",
+        "lead": "Salpêtre, enduits qui cloquent, pierre qui s'effrite en pied de mur : l'humidité abîme les maisons en tuffeau. Avant de traiter, nous cherchons d'où vient l'eau, car le bon traitement dépend de la cause.",
+        "sections": [
+            ("D'où vient l'humidité ?",
+             "<ul>"
+             "<li><strong>Par le haut</strong> : gouttière percée, chéneau bouché, appui de fenêtre sans bavette, qui déversent l'eau sur la façade.</li>"
+             "<li><strong>Par le sol</strong> : remontées capillaires, quand l'eau du terrain monte dans la base des murs.</li>"
+             "<li><strong>Par la façade</strong> : enduit fissuré ou pierre poreuse qui absorbent la pluie battante.</li>"
+             "<li><strong>Par l'intérieur</strong> : condensation dans une maison mal ventilée.</li>"
+             "</ul>"
+             "<p>Couvreurs et zingueurs, nous vérifions d'abord l'évacuation de l'eau de toiture, une cause fréquente, avant de toucher au mur.</p>"),
+            ("Les traitements",
+             "<ul>"
+             "<li>reprise de la zinguerie et pose de bavettes pour éloigner l'eau des murs ;</li>"
+             "<li>barrière contre les remontées capillaires, injectée à la base des murs ;</li>"
+             "<li>remplacement des enduits au ciment par des enduits à la chaux, qui laissent le mur sécher ;</li>"
+             "<li>traitement hydrofuge respirant des façades exposées à la pluie.</li>"
+             "</ul>"),
+            ("Tuffeau : ne pas enfermer l'eau",
+             "<p>Le tuffeau est une pierre tendre et poreuse. Un enduit au ciment, une peinture étanche ou des joints trop durs bloquent l'humidité dans la pierre, qui finit par se déliter. Sur ces murs, chaque produit doit rester perméable à la vapeur d'eau.</p>"),
+        ],
+        "faq": [
+            ("Un hydrofuge suffit-il contre l'humidité ?",
+             "Non, s'il s'agit de remontées capillaires ou d'une gouttière qui fuit : l'hydrofuge protège seulement la façade de la pluie. Il doit aussi rester respirant, pour ne pas enfermer l'eau dans le mur."),
+            ("Combien de temps faut-il pour qu'un mur sèche ?",
+             "Souvent plusieurs mois après le traitement, selon l'épaisseur du mur et la saison. Les enduits intérieurs abîmés se refont une fois le mur sec."),
+            ("La visite est-elle payante ?",
+             "Non. Nous venons voir, nous cherchons l'origine de l'humidité et nous vous remettons un devis gratuit."),
+        ],
+        "related": ["ravalement-facade", "zinguerie-gouttieres", "reparation-fissures"],
+    },
+    {
+        "slug": "reparation-fissures",
+        "home": False,
+        "nav": "Fissures de façade",
+        "short": "Diagnostic et réparation des fissures, des enduits et des joints de façade.",
+        "h1": "Réparation de fissures de façade à Saumur",
+        "title": "Réparation de fissures de façade à Saumur | Tinten Couverture",
+        "desc": "Réparation des fissures de façade à Saumur : diagnostic, fissures d'enduit, joints et tuffeau, enduits à la chaux, ravalement. Visite et devis gratuits.",
+        "photo": "chantier-facade-echafaudage",
+        "photo_alt": "Maison sous échafaudage pendant des travaux de façade",
+        "lead": "Une fissure laisse entrer l'eau dans le mur, et l'eau l'agrandit à chaque hiver. Nous examinons chaque fissure pour savoir si elle touche l'enduit ou la structure, puis nous la réparons avec des matériaux compatibles avec le mur.",
+        "sections": [
+            ("Toutes les fissures ne se valent pas",
+             "<ul>"
+             "<li><strong>Le faïençage</strong> : un réseau de fines craquelures dans l'enduit, souvent lié à son séchage.</li>"
+             "<li><strong>Les microfissures</strong>, de moins de 0,2 mm, qui restent superficielles.</li>"
+             "<li><strong>Les fissures ouvertes</strong>, de 0,2 à 2 mm, qui laissent entrer l'eau et doivent être traitées.</li>"
+             "<li><strong>Les lézardes</strong>, au-delà de 2 mm, qui peuvent signaler un mouvement du bâtiment.</li>"
+             "</ul>"
+             "<p>Une fissure qui s'élargit, traverse le mur ou part des angles des ouvertures demande l'avis d'un bureau d'études avant toute réparation de surface. Nous vous le disons lors de la visite.</p>"),
+            ("Comment nous réparons",
+             "<p>La fissure est ouverte et nettoyée, puis comblée avec un mortier ou un mastic adapté au support. Sur un enduit, une toile d'armature limite le risque de reprise. Sur le tuffeau, les joints sont refaits à la chaux et les pierres trop abîmées peuvent être remplacées. La finition se raccorde au reste de la façade ; quand les fissures sont nombreuses, un ravalement complet est souvent plus durable.</p>"),
+            ("Traiter aussi la cause",
+             "<p>Une gouttière qui déborde, un appui sans bavette ou une descente qui se déverse au pied du mur fragilisent la façade. Nous vérifions la zinguerie en même temps que les fissures.</p>"),
+        ],
+        "faq": [
+            ("Une fissure sur la façade est-elle grave ?",
+             "La plupart des fissures fines ne touchent que l'enduit. Une fissure large, qui s'agrandit ou qui traverse le mur peut révéler un problème de structure et doit être examinée avant d'être rebouchée."),
+            ("Peut-on simplement reboucher une fissure ?",
+             "Un rebouchage en surface, sans préparation ni traitement de la cause, ne tient pas : la fissure réapparaît. Elle doit être ouverte, nettoyée et comblée avec un produit compatible avec le mur."),
+            ("Faut-il une autorisation ?",
+             "Une réparation ponctuelle n'en demande en général pas. Un ravalement complet peut nécessiter une déclaration préalable, notamment en secteur protégé à Saumur."),
+        ],
+        "related": ["ravalement-facade", "traitement-humidite", "zinguerie-gouttieres"],
     },
 ]
 
@@ -570,6 +717,27 @@ CITIES = [
         "nearby": ["Saint-Jean-de-Thouars", "Louzy", "Sainte-Verge", "Mauzé-Thouarsais", "Loretz-d'Argenton", "Plaine-et-Vallées"],
         "photo": "chantier-toiture-echafaudage",
         "photo_alt": "Chantier de toiture sous échafaudage avec le camion de l'entreprise",
+    },
+    # Page reprise de l'ancien site (même adresse), au-delà du rayon habituel
+    {
+        "slug": "couvreur-angers",
+        "name": "Angers",
+        "cp": "49000",
+        "dept": "Maine-et-Loire",
+        "dist": 65,
+        "title": "Couvreur à Angers (49000) | Tinten Couverture",
+        "desc": "Couvreur intervenant à Angers : réfection de toiture en ardoise, zinguerie, fenêtres de toit et fuites. Entreprise de Saumur, sur rendez-vous. Devis gratuit.",
+        "intro": "Angers est à environ 65 km de Saumur par la route, au-delà de notre secteur habituel de 40 km. Nous y intervenons sur rendez-vous pour des chantiers de toiture : appelez-nous pour vérifier nos disponibilités.",
+        "local": [
+            ("Les toitures d'Angers",
+             "<p>Surnommée la « ville noire », Angers doit son allure à l'ardoise de Trélazé, extraite à ses portes, qui couvre la plupart de ses toits. Maisons de ville, hôtels particuliers du centre et pavillons des quartiers résidentiels partagent cette tradition de l'ardoise, avec une zinguerie abondante.</p>"),
+            ("Patrimoine et démarches",
+             "<p>Le centre ancien d'Angers compte de nombreux monuments historiques. À leurs abords, les travaux qui modifient l'aspect d'une toiture ou d'une façade demandent une autorisation d'urbanisme et l'avis de l'Architecte des Bâtiments de France. Nous vous indiquons les démarches au moment du devis.</p>"),
+        ],
+        "works": ["renovation-toiture", "couverture-ardoise", "zinguerie-gouttieres", "fenetres-de-toit"],
+        "nearby": ["Trélazé", "Les Ponts-de-Cé", "Saint-Barthélemy-d'Anjou", "Loire-Authion", "Brissac Loire Aubance", "Mazé-Milon"],
+        "photo": "couverture-ardoise-detail",
+        "photo_alt": "Petite toiture en ardoise naturelle terminée",
     },
 ]
 
